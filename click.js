@@ -17,8 +17,15 @@ function clickLambda(ev, broadcast) {
         return;
     }
 
-    if (this.opts.preventDefault && ev.preventDefault) {
-        ev.preventDefault();
+    if (this.opts.preventDefault) {
+        if (ev.preventDefault) {
+          ev.preventDefault();
+        } else {
+    
+          //for browsers that don't support preventDefault().
+          ev.cancelBubble = true;
+          ev.returnValue = false;
+        }
     }
 
     broadcast(this.data);
