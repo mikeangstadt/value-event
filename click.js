@@ -21,9 +21,7 @@ function clickLambda(ev, broadcast) {
         if (ev.preventDefault) {
           ev.preventDefault();
         } else {
-    
           //for browsers that don't support preventDefault().
-          ev.cancelBubble = true;
           ev.returnValue = false;
         }
     }
